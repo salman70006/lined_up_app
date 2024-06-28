@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "415680926280",
+    "project_id": "linedup-eade0",
+    "storage_bucket": "linedup-eade0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415680926280:android:a8df82f8e9d3ed1950be7d",
+        "android_client_info": {
+          "package_name": "com.example.linedup_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415680926280-t5874n29hhrjgjqgdan9kdkil3hj38os.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFbViWtBgXIXItN4Ei0O340e0QqlTdPBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415680926280-t5874n29hhrjgjqgdan9kdkil3hj38os.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
