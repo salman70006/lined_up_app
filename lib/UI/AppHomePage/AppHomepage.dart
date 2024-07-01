@@ -1,8 +1,5 @@
 import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -21,6 +18,9 @@ import 'package:linedup_app/Utils/Constants/ColorConstants/ColorConstants.dart';
 import 'package:linedup_app/Utils/Constants/RouteConstants/RouteConstants.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import 'package:super_tooltip/super_tooltip.dart';
+
+import '../../Components/TooltipContents/distanceTooltipContent.dart';
 
 class AppHomePage extends StatefulWidget {
   const AppHomePage({super.key});
@@ -34,6 +34,7 @@ class _AppHomePageState extends State<AppHomePage> with SingleTickerProviderStat
 AllBarsService allBarsService = AllBarsService();
 UserProfileService userProfileService = UserProfileService();
   Completer<GoogleMapController> _controller = Completer();
+  final tooltipController = SuperTooltipController();
 
   static const LatLng _center = const LatLng(45.521563, -122.677433);
 
@@ -91,18 +92,20 @@ UserProfileService userProfileService = UserProfileService();
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Current Location",
-                                  style: StaticTextStyle().regular.copyWith(fontSize: 12.sp),
-                                ),
-                                Text(
-                                  userProfileProvider.userProfileResponseModel?.data!.location??"",
-                                  style: StaticTextStyle().regular.copyWith(fontSize: 16.sp),
-                                ),
-                              ],
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Current Location",
+                                    style: StaticTextStyle().regular.copyWith(fontSize: 12.sp),
+                                  ),
+                                  Text(
+                                    userProfileProvider.userProfileResponseModel?.data!.location??"",
+                                    style: StaticTextStyle().regular.copyWith(fontSize: 16.sp),
+                                  ),
+                                ],
+                              ),
                             ),
                             BackButtonWidget(
                               onPress: () {
@@ -143,7 +146,7 @@ UserProfileService userProfileService = UserProfileService();
                             borderColor: ColorConstants.whiteColor.withOpacity(0.0),
                             containerColor: ColorConstants.whiteColor.withOpacity(0.4),
                             height: 44.sp,
-                            width: 100.sp,
+                            width: 126.sp,
                             borderRadius: 10.sp,
                             leftPadding: 1.sp,
                           ),
@@ -169,20 +172,34 @@ UserProfileService userProfileService = UserProfileService();
                             SizedBox(
                               width: 10.sp,
                             ),
-                            BackButtonWidget(
-                              onPress: () {},
-                              imageWidget: SvgPicture.asset(
-                                AssetConstants.distanceFilterIcon,
-                                height: 20.sp,
-                                width: 16.sp,
+                            InkWell(
+                              onTap: (){
+                                tooltipController.showTooltip();
+                              },
+                              child: SuperTooltip(
+                                arrowLength: 8.51.sp,
+                                arrowTipDistance: 18.sp,
+                                minimumOutsideMargin: 14.w,
+                                borderColor: Colors.transparent,
+                                shadowColor: ColorConstants.blackColor.withOpacity(0.12),
+                                barrierColor: Colors.transparent,
+                                controller: tooltipController,
+                                content: DistanceTooltipContent(),
+                                child: BackButtonWidget(
+                                  imageWidget: SvgPicture.asset(
+                                    AssetConstants.distanceFilterIcon,
+                                    height: 20.sp,
+                                    width: 16.sp,
+                                  ),
+                                  containerColor: ColorConstants.whiteColor.withOpacity(0.4),
+                                  leftPadding: 2.sp,
+                                  topPadding: 2.sp,
+                                  borderRadius: 8.sp,
+                                  height: 45.sp,
+                                  width: 45.sp,
+                                  borderColor: ColorConstants.whiteColor.withOpacity(0.0),
+                                ),
                               ),
-                              containerColor: ColorConstants.whiteColor.withOpacity(0.4),
-                              leftPadding: 2.sp,
-                              topPadding: 2.sp,
-                              borderRadius: 8.sp,
-                              height: 45.sp,
-                              width: 45.sp,
-                              borderColor: ColorConstants.whiteColor.withOpacity(0.0),
                             )
                           ],
                         )

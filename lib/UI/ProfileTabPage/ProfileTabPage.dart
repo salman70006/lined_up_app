@@ -19,6 +19,8 @@ import 'package:linedup_app/Utils/Constants/RouteConstants/RouteConstants.dart';
 import 'package:linedup_app/globals.dart';
 import 'package:provider/provider.dart';
 
+import '../../Components/customWaveClipper.dart';
+
 class ProfileTabPage extends StatefulWidget {
   const ProfileTabPage({super.key});
 
@@ -52,10 +54,14 @@ class _ProfileTabPageState extends State<ProfileTabPage> {
                 child: Stack(
                   alignment: AlignmentDirectional.bottomCenter,
                   children: [
-                    Container(
-                      height: 240.sp,
-                      width: double.infinity,
-                      child: Image.asset(AssetConstants.profileBackGroundImage,fit: BoxFit.fitHeight,height: 220.sp,),
+                    ClipPath(
+                      clipper: WaveClipper(),
+                      child: Container(
+                        height: 227.sp,
+                        width: double.infinity,
+                        color: Colors.yellow,
+                        // child: Image.asset(AssetConstants.profileBackGroundImage,fit: BoxFit.fitHeight,height: 220.sp,),
+                      ),
                     ),
 
                     Container(

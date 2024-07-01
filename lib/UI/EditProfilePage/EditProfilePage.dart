@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:linedup_app/Components/CustomOutlineTextField/CustomOutlineTextField.dart';
 import 'package:linedup_app/Components/Extentions/PaddingExtentions.dart';
+import 'package:linedup_app/Components/customWaveClipper.dart';
 
 import '../../Components/CacheNetworkImage/CacheNetworkImage.dart';
 import '../../Components/CustomAppButton/CustomAppButton.dart';
@@ -32,10 +35,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
           children: [
             Stack(
               children: [
-                Container(
-                  height: 240.sp,
-                  width: double.infinity,
-                  child: Image.asset(AssetConstants.profileBackGroundImage,fit: BoxFit.fitHeight,height: 220.sp,),
+                ClipPath(
+                  clipper: WaveClipper(),
+                  child: Container(
+                    height: 227.sp,
+                    width: double.infinity,
+                    color: Colors.yellow,
+                    // child: Image.asset(AssetConstants.profileBackGroundImage,fit: BoxFit.fitHeight,height: 220.sp,),
+                  ),
                 ),
 
                 Padding(
