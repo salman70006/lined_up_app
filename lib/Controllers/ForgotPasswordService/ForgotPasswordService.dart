@@ -1,16 +1,16 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:linedup_app/API/api.dart';
-import 'package:linedup_app/API/api_response.dart';
-import 'package:linedup_app/ApiEndPoints/ApiEndPoints.dart';
-import 'package:linedup_app/Models/OTPRequestModel/OTPRequestModel.dart';
-import 'package:linedup_app/Models/OTPResponseModel/OTPResponseModel.dart';
-import 'package:linedup_app/Models/ResetPasswordRequestModel/ResetPasswordRequestModel.dart';
-import 'package:linedup_app/Models/ResetPasswordResponseModel/ResetPasswordResponseModel.dart';
-import 'package:linedup_app/Models/VerifyEmailRequestModel/VerifyEmailRequestModel.dart';
-import 'package:linedup_app/Models/VerifyEmailResponsetModel/VerifyEmailResponsetModel.dart';
-import 'package:linedup_app/Providers/ForgotPasswordPrvoider/ForgotPasswordProvider.dart';
+import 'package:com.zat.linedup/API/api.dart';
+import 'package:com.zat.linedup/API/api_response.dart';
+import 'package:com.zat.linedup/ApiEndPoints/ApiEndPoints.dart';
+import 'package:com.zat.linedup/Models/OTPRequestModel/OTPRequestModel.dart';
+import 'package:com.zat.linedup/Models/OTPResponseModel/OTPResponseModel.dart';
+import 'package:com.zat.linedup/Models/ResetPasswordRequestModel/ResetPasswordRequestModel.dart';
+import 'package:com.zat.linedup/Models/ResetPasswordResponseModel/ResetPasswordResponseModel.dart';
+import 'package:com.zat.linedup/Models/VerifyEmailRequestModel/VerifyEmailRequestModel.dart';
+import 'package:com.zat.linedup/Models/VerifyEmailResponsetModel/VerifyEmailResponsetModel.dart';
+import 'package:com.zat.linedup/Providers/ForgotPasswordPrvoider/ForgotPasswordProvider.dart';
 import 'package:provider/provider.dart';
 
 class ForgotPasswordService{

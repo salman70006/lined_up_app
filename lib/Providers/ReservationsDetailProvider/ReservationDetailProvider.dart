@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/Models/GiveReviewResponseModel/GiveReviewResponseModel.dart';
-import 'package:linedup_app/Models/RedeemTicketResponseModel/RedeemTicketResponseModel.dart';
-import 'package:linedup_app/Models/ReservationsDetailResponseModel/ReservationsDetailResponseModel.dart';
+import 'package:com.zat.linedup/Models/GiveReviewResponseModel/GiveReviewResponseModel.dart';
+import 'package:com.zat.linedup/Models/RedeemTicketResponseModel/RedeemTicketResponseModel.dart';
+import 'package:com.zat.linedup/Models/ReservationsDetailResponseModel/ReservationsDetailResponseModel.dart';
 
 class ReservationDetailProvider extends ChangeNotifier{
 

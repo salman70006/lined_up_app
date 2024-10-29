@@ -1,13 +1,18 @@
 
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:linedup_app/Components/CustomAppButton/CustomAppButton.dart';
-import 'package:linedup_app/SharedPrefrences/SharedPrefrences.dart';
-import 'package:linedup_app/Utils/Constants/ColorConstants/ColorConstants.dart';
-import 'package:linedup_app/Utils/Constants/Key_Constants.dart';
-import 'package:linedup_app/Utils/Constants/RouteConstants/RouteConstants.dart';
-import 'package:linedup_app/globals.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:com.zat.linedup/Components/CustomAppButton/CustomAppButton.dart';
+import 'package:com.zat.linedup/Providers/SocialLoginsAuthProvider/SocailLoginsAuthProvider.dart';
+import 'package:com.zat.linedup/SharedPrefrences/SharedPrefrences.dart';
+import 'package:com.zat.linedup/Utils/Constants/ColorConstants/ColorConstants.dart';
+import 'package:com.zat.linedup/Utils/Constants/Key_Constants.dart';
+import 'package:com.zat.linedup/Utils/Constants/RouteConstants/RouteConstants.dart';
+import 'package:com.zat.linedup/globals.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../Components/Extentions/PaddingExtentions.dart';
 import '../../Components/StaticTextStyle/StaticTextStyle.dart';
@@ -56,82 +61,73 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: Column(
         mainAxisAlignment:MainAxisAlignment.center,
         children: [
-          Expanded(
-            child: PageView.builder(
-              controller: controller,
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return  Column(
-                  children: [
-                    SizedBox(
-                        width: double.infinity,
-                        child: Image.asset(AssetConstants.onboardImage,fit: BoxFit.cover,height: 325.sp,width: double.infinity,)),
-                    SizedBox(
-                      height: 40.sp,
+          Container(
+            height: MediaQuery.of(context).size.height*0.7,
+            child: Column(
+              children: [
+                Container(
+                    height: 250,
+                    alignment: Alignment.topCenter,
+                    width: double.infinity,
+                    child: Center(child: SvgPicture.asset(AssetConstants.onboardImage,fit: BoxFit.cover,height: 230.sp,width: double.infinity,))),
+                SizedBox(
+                  height: 40.sp,
+                ),
+                Text(
+                  "Why Wait?",
+                  style: StaticTextStyle().boldTextStyle.copyWith(
+                      color: ColorConstants.blackColor
+                  ),
+                ),
+                Container(
+                  width: 313.sp,
+                  child: Text(
+                    "With LinedUp, you can reserve your spot in line days before the event begins. Waiting in lines is now a thing of the past, enjoy getting into events faster than ever when using LinedUp!",
+                    style: StaticTextStyle().regular.copyWith(
+                        color: ColorConstants.blackColor,
+                        height: 1.9.sp
                     ),
-                    Text(
-                      "Why Wait?",
-                      style: StaticTextStyle().boldTextStyle.copyWith(
-                        color: ColorConstants.textGreyColor
-                      ),
-                    ),
-                    Container(
-                      padding:  EdgeInsets.only(left: 40.sp,right: 30.sp,top: 20.sp),
-                      width: 313.sp,
-                      child: Text(
-                        "With LinedUp, you can reserve your spot in line days before the event begins.Waiting in lines is now a thing of the past, enjoy getting into events faster than ever when usingLinedUp!",
-                        style: StaticTextStyle().regular.copyWith(
-                          color: ColorConstants.textGreyColor,
-                          height: 1.9.sp
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 50.sp,
-                    ),
-                    SmoothPageIndicator(
-                      controller: controller, // PageController
-                      count:  onboardImages.length,
-                      // forcing the indicator to use a specific direction
-                      effect:  ExpandingDotsEffect(
-                          dotHeight: 10.sp,
-                          dotWidth: 10.sp,
-                          dotColor: ColorConstants.dotsGreyColor,
-                          activeDotColor: ColorConstants.appPrimaryColor
-                      ),),
-                    // Container(
-                    //   padding: EdgeInsets.only(top: 120.sp,left: PaddingExtensions.screenLeftSidePadding,right: PaddingExtensions.screenRightSidePadding),
-                    //   alignment: Alignment.bottomCenter,
-                    //   child: Column(
-                    //     children: [
-                    //       Container(
-                    //           alignment: Alignment.center,
-                    //           height: 300.sp,
-                    //           child: Image.asset(onboardImages[index],height: 300.sp,fit: BoxFit.cover,)),
-                    //       SizedBox(
-                    //         height: 30.sp,
-                    //       ),
-                    //
-                    //       SizedBox(
-                    //         height: 20.sp,
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
 
-                  ],
-                );
+                // SmoothPageIndicator(
+                //   controller: controller, // PageController
+                //   count:  onboardImages.length,
+                //   // forcing the indicator to use a specific direction
+                //   effect:  ExpandingDotsEffect(
+                //       dotHeight: 10.sp,
+                //       dotWidth: 10.sp,
+                //       dotColor: ColorConstants.dotsGreyColor,
+                //       activeDotColor: ColorConstants.appPrimaryColor
+                //   ),),
+                // Container(
+                //   padding: EdgeInsets.only(top: 120.sp,left: PaddingExtensions.screenLeftSidePadding,right: PaddingExtensions.screenRightSidePadding),
+                //   alignment: Alignment.bottomCenter,
+                //   child: Column(
+                //     children: [
+                //       Container(
+                //           alignment: Alignment.center,
+                //           height: 300.sp,
+                //           child: Image.asset(onboardImages[index],height: 300.sp,fit: BoxFit.cover,)),
+                //       SizedBox(
+                //         height: 30.sp,
+                //       ),
+                //
+                //       SizedBox(
+                //         height: 20.sp,
+                //       ),
+                //     ],
+                //   ),
+                // ),
 
-
-              },
-              itemCount: onboardImages.length, // Can be null
-            ),
+              ],
+            )
           ),
           Container(
-            height: 140.sp,
+            height: Platform.isIOS?100.sp : 140.sp,
             width: double.infinity,
-            padding: EdgeInsets.all(PaddingExtensions.screenOverAllPadding),
+            padding:  Platform.isIOS?EdgeInsets.only(left: 12.sp,right: 12.sp,bottom: 40.sp,top: 10.sp): EdgeInsets.all( PaddingExtensions.screenOverAllPadding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -172,7 +168,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     )
                   ),
                   btnRadius: 12.sp,
-                  onPress: ()async{
+                  onPress: (){
 
                     Navigator.of(context).pushNamed(RouteConstants.loginPageRoute,);
                   },

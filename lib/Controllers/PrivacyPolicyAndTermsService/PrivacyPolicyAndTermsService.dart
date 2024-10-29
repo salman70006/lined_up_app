@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/API/api.dart';
-import 'package:linedup_app/API/api_response.dart';
-import 'package:linedup_app/ApiEndPoints/ApiEndPoints.dart';
-import 'package:linedup_app/Models/PrivacyPolicyAndTCResponseModel/PrivacyPolicyAndTCResponseModel.dart';
-import 'package:linedup_app/Providers/privacyPolicyProvider/PrivacyPolicyProvider.dart';
+import 'package:com.zat.linedup/API/api.dart';
+import 'package:com.zat.linedup/API/api_response.dart';
+import 'package:com.zat.linedup/ApiEndPoints/ApiEndPoints.dart';
+import 'package:com.zat.linedup/Models/PrivacyPolicyAndTCResponseModel/PrivacyPolicyAndTCResponseModel.dart';
+import 'package:com.zat.linedup/Providers/privacyPolicyProvider/PrivacyPolicyProvider.dart';
 import 'package:provider/provider.dart';
 
 class PrivacyPolicyAndTermsService{

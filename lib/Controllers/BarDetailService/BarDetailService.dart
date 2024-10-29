@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/API/api.dart';
-import 'package:linedup_app/API/api_response.dart';
-import 'package:linedup_app/ApiEndPoints/ApiEndPoints.dart';
-import 'package:linedup_app/Models/BarDetailsResponseModel/BarDetailsResponseModel.dart';
-import 'package:linedup_app/Models/ReservationBookingRequestModel/ReservationRequestModel.dart';
-import 'package:linedup_app/Models/ReservationBookingResponseModel/ReservationBookingResponseModel.dart';
-import 'package:linedup_app/Providers/BarDetailProvider/BarDetailProvider.dart';
+import 'package:com.zat.linedup/API/api.dart';
+import 'package:com.zat.linedup/API/api_response.dart';
+import 'package:com.zat.linedup/ApiEndPoints/ApiEndPoints.dart';
+import 'package:com.zat.linedup/Models/BarDetailsResponseModel/BarDetailsResponseModel.dart';
+import 'package:com.zat.linedup/Models/ReservationBookingRequestModel/ReservationRequestModel.dart';
+import 'package:com.zat.linedup/Models/ReservationBookingResponseModel/ReservationBookingResponseModel.dart';
+import 'package:com.zat.linedup/Providers/BarDetailProvider/BarDetailProvider.dart';
 import 'package:provider/provider.dart';
 
 class BarDetailService{
@@ -28,11 +28,11 @@ class BarDetailService{
     }
   }
 
-  Future<ApiResponse<ReservationBookingResponseModel>?> reservationBooking(BuildContext context,String barId,type,totalMember,peakSlots,nonPeakSlots,eventId,reservationId,expressReservationId,netTotal)async{
+  Future<ApiResponse<ReservationBookingResponseModel>?> reservationBooking(BuildContext context,dynamic reservationId,dynamic eventId,dynamic expressReservationId,String totalMember,String barId,String type,dynamic peakSlots,dynamic nonPeakSlots,double netTotal)async{
     var reservationBookingProvider = Provider.of<BarDetailProvider>(context,listen: false);
     
     ReservationBookingRequestModel requestModel = ReservationBookingRequestModel(
-      barId: int.parse(barId),
+      barId: barId,
       type: type,
       totalMembers: totalMember,
       peakSlots: peakSlots,

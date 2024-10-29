@@ -1,15 +1,15 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/API/api.dart';
-import 'package:linedup_app/API/api_response.dart';
-import 'package:linedup_app/Models/BarEventDetailResponseModel/BarEventDetailResponseModel.dart';
-import 'package:linedup_app/Providers/BarEventDetailProvider/BarEventDetailProvider.dart';
+import 'package:com.zat.linedup/API/api.dart';
+import 'package:com.zat.linedup/API/api_response.dart';
+import 'package:com.zat.linedup/Models/BarEventDetailResponseModel/BarEventDetailResponseModel.dart';
+import 'package:com.zat.linedup/Providers/BarEventDetailProvider/BarEventDetailProvider.dart';
 import 'package:provider/provider.dart';
 
 class BarEventDetailService{
 
-  Future<ApiResponse<BarEventDetailResponseModel>?> getEventsDetail(BuildContext context,eventId)async{
+  Future<ApiResponse<BarEventDetailResponseModel>?> getEventsDetail(BuildContext context,int? eventId)async{
 
     var detailProvider = Provider.of<EventDetailProvider>(context,listen: false);
 

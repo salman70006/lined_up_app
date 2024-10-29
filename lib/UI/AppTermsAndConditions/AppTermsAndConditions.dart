@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:linedup_app/Components/BackButtonWidget/BackButtonWidget.dart';
-import 'package:linedup_app/Components/Extentions/PaddingExtentions.dart';
-import 'package:linedup_app/Components/StaticTextStyle/StaticTextStyle.dart';
-import 'package:linedup_app/Controllers/PrivacyPolicyAndTermsService/PrivacyPolicyAndTermsService.dart';
-import 'package:linedup_app/Providers/privacyPolicyProvider/PrivacyPolicyProvider.dart';
+import 'package:com.zat.linedup/Components/BackButtonWidget/BackButtonWidget.dart';
+import 'package:com.zat.linedup/Components/Extentions/PaddingExtentions.dart';
+import 'package:com.zat.linedup/Components/StaticTextStyle/StaticTextStyle.dart';
+import 'package:com.zat.linedup/Controllers/PrivacyPolicyAndTermsService/PrivacyPolicyAndTermsService.dart';
+import 'package:com.zat.linedup/Providers/privacyPolicyProvider/PrivacyPolicyProvider.dart';
 import 'package:provider/provider.dart';
 
 import '../../Utils/Constants/ColorConstants/ColorConstants.dart';

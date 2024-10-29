@@ -1,13 +1,13 @@
 class ReservationBookingRequestModel {
-  int? barId;
+  String? barId;
   String? type;
-  int? totalMembers;
+  String? totalMembers;
   String? peakSlots;
   String? nonPeakSlots;
-  String? eventId;
-  int? reservationId;
-  String? expressReservationId;
-  int? netTotal;
+  dynamic eventId;
+  dynamic reservationId;
+  dynamic expressReservationId;
+  double? netTotal;
 
   ReservationBookingRequestModel(
       {this.barId,

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/Models/GetAllPromotionsResponseModel/GetAllPromotionsResponseModel.dart';
+import 'package:com.zat.linedup/Models/GetAllPromotionsResponseModel/GetAllPromotionsResponseModel.dart';
 
 class AllPromotionsProvider extends ChangeNotifier{
 

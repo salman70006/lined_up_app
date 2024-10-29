@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:linedup_app/Components/StaticTextStyle/StaticTextStyle.dart';
-import 'package:linedup_app/Providers/AllPromotionsProvider/AllPromotionsProvider.dart';
-import 'package:linedup_app/Utils/Constants/ColorConstants/ColorConstants.dart';
+import 'package:com.zat.linedup/Components/StaticTextStyle/StaticTextStyle.dart';
+import 'package:com.zat.linedup/Providers/AllPromotionsProvider/AllPromotionsProvider.dart';
+import 'package:com.zat.linedup/Utils/Constants/ColorConstants/ColorConstants.dart';
 import 'package:provider/provider.dart';
 
 class DailyPromotionWidget extends StatefulWidget {
@@ -66,12 +66,13 @@ class _DailyPromotionWidgetState extends State<DailyPromotionWidget> {
                     ),
                   ),
                   SizedBox(
-                    width: 200.sp,
                     child: Text(
                         dailyPromotion.description.toString()??"",
                         style: StaticTextStyle().regular.copyWith(
                         fontSize: 12.sp,
                         color: ColorConstants.blackColor,),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
                     ),
                   ),
 
@@ -122,13 +123,15 @@ class _DailyPromotionWidgetState extends State<DailyPromotionWidget> {
                         ),
                       ),
                       SizedBox(
-                        width: 200.sp,
                         child: Text(
                           dailyPromotion.description.toString()??"",
                           style: StaticTextStyle().regular.copyWith(
                             fontSize: 12.sp,
                             color: ColorConstants.blackColor,),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
                         ),
+
                       ),
 
                     ],

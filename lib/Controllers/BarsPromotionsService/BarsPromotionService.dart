@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:linedup_app/Models/GetAllPromotionsResponseModel/GetAllPromotionsResponseModel.dart';
-import 'package:linedup_app/Providers/AllPromotionsProvider/AllPromotionsProvider.dart';
+import 'package:com.zat.linedup/Models/GetAllPromotionsResponseModel/GetAllPromotionsResponseModel.dart';
+import 'package:com.zat.linedup/Providers/AllPromotionsProvider/AllPromotionsProvider.dart';
 import 'package:provider/provider.dart';
 
 import '../../API/api.dart';

@@ -1,7 +1,7 @@
 class ReservationBookingResponseModel {
   bool? success;
-  String? message;
-  String? data;
+  dynamic message;
+  dynamic data;
 
   ReservationBookingResponseModel({this.success, this.message, this.data});
 

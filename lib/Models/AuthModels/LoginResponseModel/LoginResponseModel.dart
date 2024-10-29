@@ -3,6 +3,7 @@ class LoginResponseModel {
   String? message;
   String? token;
   String? tokenType;
+  String? errors;
   Data? data;
 
   LoginResponseModel(
@@ -11,6 +12,7 @@ class LoginResponseModel {
   LoginResponseModel.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     message = json['message'];
+    errors = json["errors"];
     token = json['token'];
     tokenType = json['token_type'];
     data = json['data'] != null ? new Data.fromJson(json['data']) : null;
@@ -20,6 +22,7 @@ class LoginResponseModel {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['success'] = this.success;
     data['message'] = this.message;
+    data['errors'] = this.errors;
     data['token'] = this.token;
     data['token_type'] = this.tokenType;
     if (this.data != null) {

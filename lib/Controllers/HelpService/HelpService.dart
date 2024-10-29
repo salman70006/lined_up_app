@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/API/api.dart';
-import 'package:linedup_app/API/api_response.dart';
-import 'package:linedup_app/ApiEndPoints/ApiEndPoints.dart';
-import 'package:linedup_app/Models/HelpRequestModel/HelpRequestModel.dart';
-import 'package:linedup_app/Models/HelpResponseModel/HelpResponseModel.dart';
-import 'package:linedup_app/Providers/HelpProvider/HelpProvider.dart';
+import 'package:com.zat.linedup/API/api.dart';
+import 'package:com.zat.linedup/API/api_response.dart';
+import 'package:com.zat.linedup/ApiEndPoints/ApiEndPoints.dart';
+import 'package:com.zat.linedup/Models/HelpRequestModel/HelpRequestModel.dart';
+import 'package:com.zat.linedup/Models/HelpResponseModel/HelpResponseModel.dart';
+import 'package:com.zat.linedup/Providers/HelpProvider/HelpProvider.dart';
 import 'package:provider/provider.dart';
 
 class HelpService {
@@ -19,7 +19,7 @@ class HelpService {
     );
     debugPrint("Help Request: ${helpRequestModel.title},${helpRequestModel.description}");
     try{
-      var response = await Api.postRequestData(ApiEndPoints.sendSupport, helpRequestModel, context,sendToken: true);
+      var response = await Api.postRequestData(ApiEndPoints.sendSupport, helpRequestModel.toJson(), context,sendToken: true);
       debugPrint("Help Api Response:$response");
       HelpResponseModel helpResponseModel = HelpResponseModel.fromJson(jsonDecode(response));
       debugPrint("Help Model Response:${helpResponseModel.toJson()}");

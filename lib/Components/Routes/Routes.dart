@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:linedup_app/UI/AppBottomBar/AppBottomBar.dart';
-import 'package:linedup_app/UI/AppPrivacyPolicyPage/AppPricacyPolicyPage.dart';
-import 'package:linedup_app/UI/AppTermsAndConditions/AppTermsAndConditions.dart';
-import 'package:linedup_app/UI/AuthPages/ForgotPassword/ForgotPassword.dart';
-import 'package:linedup_app/UI/AuthPages/LoginPage/LoginPage.dart';
-import 'package:linedup_app/UI/AuthPages/OtpVarification/OTPVerification.dart';
-import 'package:linedup_app/UI/AuthPages/PasswordChangesSuccessPage/PasswordChangeSuccessPage.dart';
-import 'package:linedup_app/UI/AuthPages/ResetPasswordPage/ResetPasswordPage.dart';
-import 'package:linedup_app/UI/AuthPages/SignupPage/SignupPage.dart';
-import 'package:linedup_app/UI/BarDetailPage/BarDetailPage.dart';
-import 'package:linedup_app/UI/EditProfilePage/EditProfilePage.dart';
-import 'package:linedup_app/UI/EventDetailScreen/EventDetailScreen.dart';
-import 'package:linedup_app/UI/HelpAndSupportPage/HelpAndSupportPage.dart';
-import 'package:linedup_app/UI/NotificationsPage/NotificationsPage.dart';
-import 'package:linedup_app/UI/OnBordingScreen/OnBoardingScreen.dart';
-import 'package:linedup_app/UI/PaymentMethodsPage/PaymentMethodsPage.dart';
-import 'package:linedup_app/UI/PromotionsPage/PromotionsPage.dart';
-import 'package:linedup_app/UI/ReservationDetailPage/ReservationDetailPage.dart';
-import 'package:linedup_app/UI/TransferTicketView/TransferTicketView.dart';
-import 'package:linedup_app/UI/ViewTicketPage/ViewTicketPage.dart';
-import 'package:linedup_app/Utils/Constants/RouteConstants/RouteConstants.dart';
+import 'package:com.zat.linedup/UI/AppBottomBar/AppBottomBar.dart';
+import 'package:com.zat.linedup/UI/AppPrivacyPolicyPage/AppPricacyPolicyPage.dart';
+import 'package:com.zat.linedup/UI/AppTermsAndConditions/AppTermsAndConditions.dart';
+import 'package:com.zat.linedup/UI/AuthPages/ForgotPassword/ForgotPassword.dart';
+import 'package:com.zat.linedup/UI/AuthPages/LoginPage/LoginPage.dart';
+import 'package:com.zat.linedup/UI/AuthPages/OtpVarification/OTPVerification.dart';
+import 'package:com.zat.linedup/UI/AuthPages/PasswordChangesSuccessPage/PasswordChangeSuccessPage.dart';
+import 'package:com.zat.linedup/UI/AuthPages/ResetPasswordPage/ResetPasswordPage.dart';
+import 'package:com.zat.linedup/UI/AuthPages/SignupPage/SignupPage.dart';
+import 'package:com.zat.linedup/UI/BarDetailPage/BarDetailPage.dart';
+import 'package:com.zat.linedup/UI/EditProfilePage/EditProfilePage.dart';
+import 'package:com.zat.linedup/UI/EventDetailScreen/EventDetailScreen.dart';
+import 'package:com.zat.linedup/UI/HelpAndSupportPage/HelpAndSupportPage.dart';
+import 'package:com.zat.linedup/UI/MapPage/MapPage.dart';
+import 'package:com.zat.linedup/UI/NotificationsPage/NotificationsPage.dart';
+import 'package:com.zat.linedup/UI/OnBordingScreen/OnBoardingScreen.dart';
+import 'package:com.zat.linedup/UI/PaymentMethodsPage/PaymentMethodsPage.dart';
+import 'package:com.zat.linedup/UI/PromotionsPage/PromotionsPage.dart';
+import 'package:com.zat.linedup/UI/ReservationDetailPage/ReservationDetailPage.dart';
+import 'package:com.zat.linedup/UI/ReservationSearchPage/ReservationsSearchPage.dart';
+import 'package:com.zat.linedup/UI/TransferTicketView/TransferTicketView.dart';
+import 'package:com.zat.linedup/UI/ViewTicketPage/ViewTicketPage.dart';
+import 'package:com.zat.linedup/UI/WishListSearchedResultPage/WishListSearchedResultPage.dart';
+import 'package:com.zat.linedup/Utils/Constants/RouteConstants/RouteConstants.dart';
 import 'package:page_transition/page_transition.dart';
+
+import '../../UI/SearchResultPage/SearchResultPage.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -35,7 +40,9 @@ class RouteGenerator {
             child: const OnboardingScreen(), type: PageTransitionType.fade, duration: animationDuration);
       case RouteConstants.loginPageRoute:
         return PageTransition(
-            child: const LoginPage(), type: PageTransitionType.fade, duration: animationDuration);
+            child:  LoginPage(
+              fromLogout: args,
+            ), type: PageTransitionType.fade, duration: animationDuration);
       case RouteConstants.signupPageRoute:
         return PageTransition(
             child: const SignupPage(), type: PageTransitionType.fade, duration: animationDuration);
@@ -63,20 +70,22 @@ class RouteGenerator {
       case RouteConstants.promotionsPageRoute:
         return PageTransition(
             child: PromotionsPage(
-              barId: args,
+              barId: args as int,
               coverImage: args,
             ), type: PageTransitionType.fade, duration: animationDuration);
       case RouteConstants.eventPageRoute:
         return PageTransition(
             child: EventDetailScreen(
-              eventId: args,
+           data: args,
             ), type: PageTransitionType.fade, duration: animationDuration);
       case RouteConstants.barDetailPage:
         return PageTransition(
             child: BarDetailPage(barId: args,), type: PageTransitionType.fade, duration: animationDuration);
       case RouteConstants.paymentMethodsPageRoute:
         return PageTransition(
-            child: PaymentMethodsPage(), type: PageTransitionType.fade, duration: animationDuration);
+            child: PaymentMethodsPage(
+              paymentUrl: args,
+            ), type: PageTransitionType.fade, duration: animationDuration);
       case RouteConstants.reservationDetailPage:
         return PageTransition(
             child: ReservationDetailPage(
@@ -112,6 +121,18 @@ class RouteGenerator {
       case RouteConstants.appTermsAndConditions:
         return PageTransition(
             child: AppTermsAndConditions(), type: PageTransitionType.fade, duration: animationDuration);
+      case RouteConstants.mapPageRoute:
+        return PageTransition(
+            child: MapPage(), type: PageTransitionType.fade, duration: animationDuration);
+      case RouteConstants.searchedResultsRoute:
+        return PageTransition(
+            child: SearchResultPage(), type: PageTransitionType.fade, duration: animationDuration);
+      case RouteConstants.wishListSearchedResultPageRoute:
+        return PageTransition(
+            child: WishListSearchResultPage(), type: PageTransitionType.fade, duration: animationDuration);
+      case RouteConstants.reservationSearchRoute:
+        return PageTransition(
+            child: ReservationsSearchPage(), type: PageTransitionType.fade, duration: animationDuration);
 
       default:
         return _errorRoute();

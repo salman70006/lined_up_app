@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:linedup_app/Components/StaticTextStyle/StaticTextStyle.dart';
-import 'package:linedup_app/Utils/Constants/AssetConstants/AssetConstants.dart';
-import 'package:linedup_app/Utils/Constants/ColorConstants/ColorConstants.dart';
+import 'package:com.zat.linedup/Components/StaticTextStyle/StaticTextStyle.dart';
+import 'package:com.zat.linedup/Utils/Constants/AssetConstants/AssetConstants.dart';
+import 'package:com.zat.linedup/Utils/Constants/ColorConstants/ColorConstants.dart';
 
 import '../../../Components/CustomAppButton/CustomAppButton.dart';
 import '../../../Components/Extentions/PaddingExtentions.dart';

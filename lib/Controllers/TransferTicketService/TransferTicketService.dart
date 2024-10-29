@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/API/api.dart';
-import 'package:linedup_app/API/api_response.dart';
-import 'package:linedup_app/ApiEndPoints/ApiEndPoints.dart';
-import 'package:linedup_app/Models/TransferTicketRequestModel/TransferTicketRequestModel.dart';
-import 'package:linedup_app/Models/TransferTicketResponseModel/TransferTicketResponseModel.dart';
-import 'package:linedup_app/Providers/TransferTicketProvider/TransferTicketProvider.dart';
+import 'package:com.zat.linedup/API/api.dart';
+import 'package:com.zat.linedup/API/api_response.dart';
+import 'package:com.zat.linedup/ApiEndPoints/ApiEndPoints.dart';
+import 'package:com.zat.linedup/Models/TransferTicketRequestModel/TransferTicketRequestModel.dart';
+import 'package:com.zat.linedup/Models/TransferTicketResponseModel/TransferTicketResponseModel.dart';
+import 'package:com.zat.linedup/Providers/TransferTicketProvider/TransferTicketProvider.dart';
 import 'package:provider/provider.dart';
 
 class TransferTicketService{

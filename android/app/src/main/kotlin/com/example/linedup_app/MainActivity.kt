@@ -1,4 +1,4 @@
-package com.example.linedup_app
+package com.zat.linedup
 
 import io.flutter.embedding.android.FlutterActivity
 

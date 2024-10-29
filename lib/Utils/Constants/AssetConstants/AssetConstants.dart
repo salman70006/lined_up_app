@@ -1,7 +1,7 @@
 class AssetConstants{
   static const String appleIcon = "assets/Icons/apple_icon.svg";
   static const String backwardIcon = "assets/Icons/backward_icon.svg";
-  static const String calendarBottomBarIcon = "assets/Icons/calendar_bottombar.svg";
+  static const String calendarBottomBarIcon = "assets/Icons/wallet_icon.svg";
   static const String cameraIcon = "assets/Icons/camera_icon.svg";
   static const String distanceFilterIcon = "assets/Icons/distance_filter_icon.svg";
   static const String facebookIcon = "assets/Icons/facebook_icon.svg";
@@ -27,11 +27,14 @@ class AssetConstants{
   static const String userProfileIcon = "assets/Icons/user_profile_icon.svg";
   static const String infoIcon = "assets/Icons/info_icon.svg";
   static const String logoutIcon = "assets/Icons/logout.svg";
+  static const String profileAvatar = "assets/Icons/profile_avatar.svg";
+  static const String onboardImage = "assets/Icons/linedup_onboard.svg";
+  // static const String ticketViewIcon = "assets/Icons/transparent_ticket_logo.svg";
 
 
   //////////////Images/////////////
 
-  static const String onboardImage = "assets/Images/linedup_onboard.png";
+  // static const String onboardImage = "assets/Images/linedup_onboard.png";
   static const String profileCircleImage = "assets/Images/profile_outline_circle.png";
   static const String successDialogImage  = "assets/Images/success_dialog_image.png";
   static const String mapImage  = "assets/Images/map_image.png";
@@ -39,6 +42,8 @@ class AssetConstants{
   static const String profileBackGroundImage  = "assets/Images/profile_background_image.png";
   static const String googleMapImage  = "assets/Images/google_map_image.png";
   static const String logoBgRemove  = "assets/Images/logo_remove_bg.png";
+  static const String avtar  = "assets/Images/avtar.png";
+  static const String ticketViewIcon  = "assets/Images/ticket_view_image.png";
   // static const String starIcon  = "assets/Images/star_icon.png";
 
   /////Network Images///
@@ -46,5 +51,5 @@ class AssetConstants{
    static const String beachBarImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBSWUCsqhWvc3Tp1pwZ1mmbNJeH9N_F8JQ7g&s";
    static const String partyImage = "https://inspain.news/wp-content/uploads/2022/06/San-Juan-1.jpg";
    static const String beachBar = "https://plus.unsplash.com/premium_photo-1661878716924-af3c5ed5b083?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmVhY2glMjBiYXIlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D";
-   static const String profileImage = "https://www.befunky.com/images/prismic/82e0e255-17f9-41e0-85f1-210163b0ea34_hero-blur-image-3.jpg?auto=avif,webp&format=jpg&width=896";
+   static const String profileImage = "https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/default-avatar-profile-picture-male-icon.png";
 }

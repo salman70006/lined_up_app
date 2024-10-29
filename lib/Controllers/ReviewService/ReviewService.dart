@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:linedup_app/API/api.dart';
-import 'package:linedup_app/API/api_response.dart';
-import 'package:linedup_app/ApiEndPoints/ApiEndPoints.dart';
-import 'package:linedup_app/Models/GiveReviewRequestModel/GiveReviewRequestModel.dart';
-import 'package:linedup_app/Models/GiveReviewResponseModel/GiveReviewResponseModel.dart';
-import 'package:linedup_app/Providers/ReservationsDetailProvider/ReservationDetailProvider.dart';
+import 'package:com.zat.linedup/API/api.dart';
+import 'package:com.zat.linedup/API/api_response.dart';
+import 'package:com.zat.linedup/ApiEndPoints/ApiEndPoints.dart';
+import 'package:com.zat.linedup/Models/GiveReviewRequestModel/GiveReviewRequestModel.dart';
+import 'package:com.zat.linedup/Models/GiveReviewResponseModel/GiveReviewResponseModel.dart';
+import 'package:com.zat.linedup/Providers/ReservationsDetailProvider/ReservationDetailProvider.dart';
 import 'package:provider/provider.dart';
 
 class ReviewService {
@@ -20,7 +20,7 @@ class ReviewService {
     debugPrint("review Request Body:${giveReviewRequestModel.barId},${giveReviewRequestModel.rating}");
 
     try{
-      var response = await Api.postRequestData(ApiEndPoints.addReview, giveReviewRequestModel, context,sendToken: true);
+      var response = await Api.postRequestData(ApiEndPoints.addReview, giveReviewRequestModel.toJson(), context,sendToken: true);
       debugPrint("review Api Response: $response");
       GiveReviewResponseModel giveReviewResponseModel = GiveReviewResponseModel.fromJson(jsonDecode(response));
       debugPrint("review Api Model Response: ${giveReviewResponseModel.toJson()}");

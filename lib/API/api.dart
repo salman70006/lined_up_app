@@ -6,26 +6,26 @@ import '../SharedPrefrences/SharedPrefrences.dart';
 import '../Utils/Constants/Key_Constants.dart';
 import '../globals.dart' as globals;
 import 'app_exceptions.dart';
+
 class Api {
-  static Future<dynamic> getRequestData(String url, BuildContext context,{bool sendToken = false}) async {
+  static Future<dynamic> getRequestData(String url, BuildContext context,
+      {bool sendToken = false}) async {
     final dio = Dio();
-    String apiUrl = globals.baseUrl!+url;
+    String apiUrl = globals.baseUrl! + url;
     print("URL: " + apiUrl);
     var responseJson;
     try {
       String? token =
-      await SharedPreferencesService().getString(KeysConstants.accessToken);
+          await SharedPreferencesService().getString(KeysConstants.accessToken);
 
-      final response = await dio.get(
-        apiUrl,
-        options: Options(
-          headers: {
-            'Accept':'application/json',
-            'Content-type': 'application/json',
-            'Authorization': 'Bearer $token',
-          },
-        )
-      );
+      final response = await dio.get(apiUrl,
+          options: Options(
+            headers: {
+              'Accept': 'application/json',
+              'Content-type': 'application/json',
+              'Authorization': 'Bearer $token',
+            },
+          ));
       print("Response: ${response.statusCode} ${response.data}");
       // Handle other successful responses
       responseJson = _returnListResponse(response);
@@ -37,55 +37,58 @@ class Api {
     }
   }
 
-  static Future<dynamic> postRequestData(String url, dynamic body, BuildContext context,
-      {bool sendToken = false}) async {
+  static Future<dynamic> postRequestData(
+      String url, dynamic body, BuildContext context,
+      {bool sendToken = false, formData = false}) async {
     final dio = Dio();
-    String apiUrl = globals.baseUrl!+url;
+    String apiUrl = globals.baseUrl! + url;
     debugPrint("URL: " + apiUrl);
 
     var responseJson;
     try {
       String? token =
-      await SharedPreferencesService().getString(KeysConstants.accessToken);
+          await SharedPreferencesService().getString(KeysConstants.accessToken);
       debugPrint(token);
-      var response = await dio.post(
-        apiUrl,
-        data: jsonEncode(body),
-        options: Options(
-          followRedirects: false,
-          // will not throw errors
-          validateStatus: (status) => true,
-          headers: sendToken
-              ? {
-            'Accept':'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer $token',
-          }
-              : {
-            'Content-Type': 'application/json',
-            'Accept':'application/json'
-          },
-        )
-      );
+
+      var response = await dio.post(apiUrl,
+          data: body,
+          options: Options(
+            followRedirects: false,
+            // will not throw errors
+            validateStatus: (status) => true,
+            headers: formData
+                ? {
+                    'Content-type': 'multipart/form-data',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer $token',
+                  }
+                : sendToken
+                    ? {
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer $token',
+                      }
+                    : {
+                        'Accept': 'application/json',
+                      },
+          ));
       print("Response: ${response.statusCode} ${response.data}");
       // Handle other successful responses
-        responseJson = _returnListResponse(response);
-        print("Response JSON: $responseJson");
-        return responseJson;
+      //   responseJson = _returnListResponse(response);
+      //   print("Response JSON: $responseJson");
+      //   return responseJson;
+      // } on SocketException {
+      //   throw FetchDataException("No Internet Available");
+      // }
+      print("ye response ha:::::::::" + response.toString());
+      responseJson = _returnListResponse(response);
+      print("ye response ha:::::::::" + responseJson.toString());
+
+      return responseJson;
+    } catch (e) {
+      print(e.toString());
     } on SocketException {
       throw FetchDataException("No Internet Available");
     }
-    //   print("ye response ha:::::::::"+ response.toString());
-    //   responseJson = _returnListResponse(response);
-    //   print("ye response ha:::::::::"+ responseJson.toString());
-    //
-    //   return responseJson;
-    // }
-    // catch(e) {
-    //   print(e.toString());
-    // }on SocketException {
-    //   throw FetchDataException("No Internet Available");
-    // }
   }
 
 //  static Future<dynamic> deleteRequest(String url, dynamic body, BuildContext context,
@@ -118,7 +121,6 @@ class Api {
 //     }
 //   }
 
-
 //   static Future<dynamic> putRequestData(String url, dynamic body, BuildContext context,
 //       {bool sendToken = false}) async {
 //     String apiUrl = apiBaseUrl+url;
@@ -148,8 +150,6 @@ class Api {
 //       throw FetchDataException("No Internet Available");
 //     }
 //   }
-
-
 }
 
 dynamic _returnListResponse(Response response) {

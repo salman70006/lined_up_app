@@ -1,10 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/API/api_response.dart';
-import 'package:linedup_app/Models/AllFavouritesResponseModel/AllFavouritesResponseModel.dart';
-import 'package:linedup_app/Models/FavoruiteToggleResponseModel/FavoruiteToggleResponseModel.dart';
-import 'package:linedup_app/Providers/AllFavouritesProvider/AllFavouritesProvider.dart';
+import 'package:com.zat.linedup/API/api_response.dart';
+import 'package:com.zat.linedup/Models/AllFavouritesResponseModel/AllFavouritesResponseModel.dart';
+import 'package:com.zat.linedup/Models/FavoruiteToggleResponseModel/FavoruiteToggleResponseModel.dart';
+import 'package:com.zat.linedup/Models/WishListSearchRequestModel/WishListSearchRequestModel.dart';
+import 'package:com.zat.linedup/Models/WishListSearchResponseModel/WishListSearchResponseModel.dart';
+import 'package:com.zat.linedup/Providers/AllFavouritesProvider/AllFavouritesProvider.dart';
 import 'package:provider/provider.dart';
 
 import '../../API/api.dart';
@@ -42,5 +44,25 @@ Future<ApiResponse<FavouriteToggleResponseModel>?> toggle(BuildContext context,b
     debugPrint("Api Error: ${e.toString()}");
     return ApiResponse.error(e.toString());
   }
+}
+
+Future<ApiResponse<WishListSearchResponseModel>?> searchFromWishList(BuildContext context,String searchFromWishList)async{
+    
+    try{
+      var searchWishListProvider = Provider.of<AllFavouritesProvider>(context,listen: false);
+      WishListSearchRequestModel wishListSearchRequestModel = WishListSearchRequestModel(
+        search: searchFromWishList
+      );
+      debugPrint("searchFromFavouritesRequest${wishListSearchRequestModel.toJson()}");
+      var response = await Api.postRequestData(ApiEndPoints.searchOnWishList, wishListSearchRequestModel.toJson(), context,sendToken: true);
+      debugPrint("searOnWishListApiResponse$response");
+      WishListSearchResponseModel wishListSearchResponseModel = WishListSearchResponseModel.fromJson(jsonDecode(response));
+      debugPrint("wishListModelResponse:${wishListSearchResponseModel.toJson()}");
+      searchWishListProvider.searchFromWishList(wishListSearchResponseModel);
+      return ApiResponse.completed(wishListSearchResponseModel);
+    }catch (e){
+      debugPrint("searchOnWishListApiErrorResponse::${e.toString()}");
+      return ApiResponse.error(e.toString());
+    }
 }
 }

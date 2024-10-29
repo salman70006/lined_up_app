@@ -1,3 +1,5 @@
+import 'package:com.zat.linedup/globals.dart';
+
 class ApiEndPoints {
 
   static const String registrationApi = "sign-up";
@@ -17,5 +19,13 @@ class ApiEndPoints {
   static const String resetPassword = "change-password";
   static const String enableLocation = "enable-user-location";
   static const String applyForReservation = "apply-for-reservation";
+  static const String updateProfile = "update-user-profile";
+  static const String searchBars = "apply-filter-on-bars";
+  static const String searchOnWishList = "apply-filter-on-wishlist";
+  static const String applyFilterOnReservation = "apply-filter-reservation";
+  static const String getNotifications = "get-notifications";
+  static const String deleteAll = "delete-all";
+  static const String logoutUser = "user-logout";
+
 
 }

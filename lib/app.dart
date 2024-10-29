@@ -1,28 +1,33 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:linedup_app/Providers/AllBarsProvider/AllBarsProvider.dart';
-import 'package:linedup_app/Providers/AllFavouritesProvider/AllFavouritesProvider.dart';
-import 'package:linedup_app/Providers/AllPromotionsProvider/AllPromotionsProvider.dart';
-import 'package:linedup_app/Providers/AllReservationProvider/AllReservationProvider.dart';
-import 'package:linedup_app/Providers/AllUsersProvider/AllUsersProvider.dart';
-import 'package:linedup_app/Providers/BarDetailProvider/BarDetailProvider.dart';
-import 'package:linedup_app/Providers/BarEventDetailProvider/BarEventDetailProvider.dart';
-import 'package:linedup_app/Providers/BeachBarDetailProvider/BeachBarDetailProvider.dart';
-import 'package:linedup_app/Providers/ForgotPasswordPrvoider/ForgotPasswordProvider.dart';
-import 'package:linedup_app/Providers/LoadingProvider/LoadingProvider.dart';
-import 'package:linedup_app/Providers/LoginProvider/LoginProvider.dart';
-import 'package:linedup_app/Providers/ReservationsDetailProvider/ReservationDetailProvider.dart';
-import 'package:linedup_app/Providers/ResetPasswordProvider/ResetpasswordProvider.dart';
-import 'package:linedup_app/Providers/TransferTicketProvider/TransferTicketProvider.dart';
-import 'package:linedup_app/Providers/UserProfileProvider/UserProfileProvider.dart';
-import 'package:linedup_app/Providers/UserRegistrationProvider/UserRegistrationProvider.dart';
-import 'package:linedup_app/Providers/privacyPolicyProvider/PrivacyPolicyProvider.dart';
-import 'package:linedup_app/Utils/Constants/RouteConstants/RouteConstants.dart';
-import 'package:linedup_app/globals.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:com.zat.linedup/Providers/AllBarsProvider/AllBarsProvider.dart';
+import 'package:com.zat.linedup/Providers/AllFavouritesProvider/AllFavouritesProvider.dart';
+import 'package:com.zat.linedup/Providers/AllPromotionsProvider/AllPromotionsProvider.dart';
+import 'package:com.zat.linedup/Providers/AllReservationProvider/AllReservationProvider.dart';
+import 'package:com.zat.linedup/Providers/AllUsersProvider/AllUsersProvider.dart';
+import 'package:com.zat.linedup/Providers/BarDetailProvider/BarDetailProvider.dart';
+import 'package:com.zat.linedup/Providers/BarEventDetailProvider/BarEventDetailProvider.dart';
+import 'package:com.zat.linedup/Providers/BeachBarDetailProvider/BeachBarDetailProvider.dart';
+import 'package:com.zat.linedup/Providers/EditProfileProvider/EditProfileProvider.dart';
+import 'package:com.zat.linedup/Providers/ForgotPasswordPrvoider/ForgotPasswordProvider.dart';
+import 'package:com.zat.linedup/Providers/LoadingProvider/LoadingProvider.dart';
+import 'package:com.zat.linedup/Providers/LoginProvider/LoginProvider.dart';
+import 'package:com.zat.linedup/Providers/NotificationsProvider/NotificationsProvider.dart';
+import 'package:com.zat.linedup/Providers/ReservationsDetailProvider/ReservationDetailProvider.dart';
+import 'package:com.zat.linedup/Providers/ResetPasswordProvider/ResetpasswordProvider.dart';
+import 'package:com.zat.linedup/Providers/TransferTicketProvider/TransferTicketProvider.dart';
+import 'package:com.zat.linedup/Providers/UserProfileProvider/UserProfileProvider.dart';
+import 'package:com.zat.linedup/Providers/UserRegistrationProvider/UserRegistrationProvider.dart';
+import 'package:com.zat.linedup/Providers/privacyPolicyProvider/PrivacyPolicyProvider.dart';
+import 'package:com.zat.linedup/Utils/Constants/RouteConstants/RouteConstants.dart';
+import 'package:com.zat.linedup/globals.dart';
 import 'package:provider/provider.dart';
 import 'Components/Routes/Routes.dart';
 import 'Providers/HelpProvider/HelpProvider.dart';
+import 'Providers/SocialLoginsAuthProvider/SocailLoginsAuthProvider.dart';
 
 
 class MyApp extends StatefulWidget {
@@ -72,9 +77,20 @@ class _MyAppState extends State<MyApp> {
             ChangeNotifierProvider(create: (context) => TransferTicketProvider()),
             ChangeNotifierProvider(create: (context) => ForgotPasswordProvider()),
             ChangeNotifierProvider(create: (context) => BarDetailProvider()),
+            ChangeNotifierProvider(create: (context) => EditProfileProvider()),
+            ChangeNotifierProvider(create: (context) => NotificationsProvider()),
+            ChangeNotifierProvider(create: (context) => SocialAuthProvider(firebaseAuth: FirebaseAuth.instance, googleSignIn: GoogleSignIn.standard())),
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              pageTransitionsTheme: PageTransitionsTheme(
+                builders: {
+                  TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+                  TargetPlatform.iOS: CupertinoPageTransitionsBuilder()
+                }
+              )
+            ),
             initialRoute: RouteConstants.initialRoute,
             onGenerateRoute: RouteGenerator.generateRoute,
           ),

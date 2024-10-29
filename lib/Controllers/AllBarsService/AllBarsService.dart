@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/API/api.dart';
-import 'package:linedup_app/API/api_response.dart';
-import 'package:linedup_app/ApiEndPoints/ApiEndPoints.dart';
-import 'package:linedup_app/Models/AllBarsResponseModel/AllBarsResponseModel.dart';
-import 'package:linedup_app/Providers/AllBarsProvider/AllBarsProvider.dart';
+import 'package:com.zat.linedup/API/api.dart';
+import 'package:com.zat.linedup/API/api_response.dart';
+import 'package:com.zat.linedup/ApiEndPoints/ApiEndPoints.dart';
+import 'package:com.zat.linedup/Models/AllBarsResponseModel/AllBarsResponseModel.dart';
+import 'package:com.zat.linedup/Providers/AllBarsProvider/AllBarsProvider.dart';
 import 'package:provider/provider.dart';
 
 class AllBarsService{

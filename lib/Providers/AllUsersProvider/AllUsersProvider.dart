@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/Models/AllUsersResponseModel/AllUsersResponseModel.dart';
+import 'package:com.zat.linedup/Models/AllUsersResponseModel/AllUsersResponseModel.dart';
 
 class AllUsersProvider extends ChangeNotifier{
   AllUsersResponseModel? allUsersResponseModel;

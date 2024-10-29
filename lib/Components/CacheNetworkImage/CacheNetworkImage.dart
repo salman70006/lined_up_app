@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:linedup_app/Utils/Constants/ColorConstants/ColorConstants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:com.zat.linedup/Utils/Constants/ColorConstants/ColorConstants.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ImageWidget extends StatelessWidget {
   String? imageUrl;
@@ -38,7 +40,15 @@ class ImageWidget extends StatelessWidget {
           fit: fit,
           color: blendColor,
           colorBlendMode: blendMode,
-        ),
+          placeholder: (context,url) => Shimmer.fromColors(
+            baseColor: Colors.grey,
+            highlightColor: Colors.white30,
+            child: Container(
+             color: Colors.grey,
+            ),
+          ),
+          errorWidget: (context,url,error)=> Container(child: Image.asset("assets/Images/place_holder.png"),),
+    ),
       ),
     );
   }

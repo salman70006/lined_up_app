@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:linedup_app/Components/StaticTextStyle/StaticTextStyle.dart';
-import 'package:linedup_app/Utils/Constants/ColorConstants/ColorConstants.dart';
+import 'package:com.zat.linedup/Components/StaticTextStyle/StaticTextStyle.dart';
+import 'package:com.zat.linedup/Utils/Constants/ColorConstants/ColorConstants.dart';
 
 import '../Extentions/PaddingExtentions.dart';
 

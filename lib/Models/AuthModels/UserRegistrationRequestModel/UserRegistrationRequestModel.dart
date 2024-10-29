@@ -1,5 +1,6 @@
 class UserRegistrationRequestModel {
   String? userName;
+  String? lastName;
   String? email;
   String? password;
   String? googleId;
@@ -8,6 +9,7 @@ class UserRegistrationRequestModel {
 
   UserRegistrationRequestModel(
       {this.userName,
+        this.lastName,
         this.email,
         this.password,
         this.googleId,
@@ -16,6 +18,7 @@ class UserRegistrationRequestModel {
 
   UserRegistrationRequestModel.fromJson(Map<String, dynamic> json) {
     userName = json['user_name'];
+    lastName = json['last_name'];
     email = json['email'];
     password = json['password'];
     googleId = json['google_id'];
@@ -26,6 +29,7 @@ class UserRegistrationRequestModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['user_name'] = this.userName;
+    data['last_name'] = this.lastName;
     data['email'] = this.email;
     data['password'] = this.password;
     data['google_id'] = this.googleId;

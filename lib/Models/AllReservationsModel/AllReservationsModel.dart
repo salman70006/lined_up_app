@@ -29,20 +29,20 @@ class AllReservationsModel {
 
 class Data {
   int? id;
-  String? userId;
-  String? barId;
-  String? barOwnerId;
+  int? userId;
+  int? barId;
+  int? barOwnerId;
   String? ticketNumber;
-  String? eventId;
-  String? reservationId;
-  String? expressReservationId;
+  dynamic eventId;
+  dynamic reservationId;
+  dynamic expressReservationId;
   String? peakSlotIds;
   String? nonPeakSlotIds;
   String? type;
   String? totalMembers;
   String? netTotal;
   String? paymentStatus;
-  String? isRedeemed;
+  int? isRedeemed;
   String? createdAt;
   String? updatedAt;
   bool? isTransferred;
@@ -146,7 +146,7 @@ class Data {
 
 class GetBarDetail {
   int? id;
-  String? barOwnerId;
+  int? barOwnerId;
   String? venue;
   List<String>? barInfo;
   String? aboutUs;
@@ -203,8 +203,8 @@ class GetBarDetail {
 
 class GetBarEvent {
   int? id;
-  String? barOwnerId;
-  String? barId;
+  int? barOwnerId;
+  int? barId;
   String? title;
   String? date;
   String? startTime;
@@ -272,10 +272,10 @@ class GetBarEvent {
 
 class GetReservation {
   int? id;
-  String? barOwnerId;
-  String? barId;
+  int? barOwnerId;
+  int? barId;
   String? totalNumberOfSlots;
-  String? status;
+  int? status;
   String? createdAt;
   String? updatedAt;
 

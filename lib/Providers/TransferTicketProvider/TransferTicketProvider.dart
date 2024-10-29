@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/Models/TransferTicketResponseModel/TransferTicketResponseModel.dart';
+import 'package:com.zat.linedup/Models/TransferTicketResponseModel/TransferTicketResponseModel.dart';
 
 class TransferTicketProvider extends ChangeNotifier{
   TransferTicketResponseModel? transferTicketResponseModel;

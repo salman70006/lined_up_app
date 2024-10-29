@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:linedup_app/Components/BackButtonWidget/BackButtonWidget.dart';
-import 'package:linedup_app/Components/CacheNetworkImage/CacheNetworkImage.dart';
-import 'package:linedup_app/Components/DailyPromotionWidget/DailyPromotionWidget.dart';
-import 'package:linedup_app/Components/StaticTextStyle/StaticTextStyle.dart';
-import 'package:linedup_app/Controllers/BarsPromotionsService/BarsPromotionService.dart';
-import 'package:linedup_app/Utils/Constants/ColorConstants/ColorConstants.dart';
+import 'package:com.zat.linedup/Components/BackButtonWidget/BackButtonWidget.dart';
+import 'package:com.zat.linedup/Components/CacheNetworkImage/CacheNetworkImage.dart';
+import 'package:com.zat.linedup/Components/DailyPromotionWidget/DailyPromotionWidget.dart';
+import 'package:com.zat.linedup/Components/StaticTextStyle/StaticTextStyle.dart';
+import 'package:com.zat.linedup/Controllers/BarsPromotionsService/BarsPromotionService.dart';
+import 'package:com.zat.linedup/Utils/Constants/ColorConstants/ColorConstants.dart';
 
 class PromotionsPage extends StatefulWidget {
   var barId;

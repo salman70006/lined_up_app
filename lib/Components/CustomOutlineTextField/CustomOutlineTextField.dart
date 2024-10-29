@@ -16,6 +16,7 @@ class CustomOutlineTextFormField extends StatelessWidget {
   bool? readOnly , obscureText,filled;
   String? obscuringCharacter,hintText;
   String? Function(String?)? validator;
+  void Function(String)? onFieldSubmitted;
   void Function(String)? onChanged;
   double? borderRadius,borderWidth,fontSize;
   EdgeInsetsGeometry? contentPadding;
@@ -33,6 +34,7 @@ class CustomOutlineTextFormField extends StatelessWidget {
     this.obscuringCharacter,
     this.onChanged,
     this.readOnly=false,
+     this.onFieldSubmitted,
     this.validator,
      this.borderRadius,
      this.fontSize,
@@ -59,6 +61,7 @@ class CustomOutlineTextFormField extends StatelessWidget {
       textInputAction: textInputAction??TextInputAction.next,
       keyboardType: keyboardType??TextInputType.text,
       cursorColor: cursorColor??ColorConstants.whiteColor,
+      readOnly: readOnly??false,
       style: style??TextStyle(
           color: ColorConstants.blackColor,
           fontSize: 14.sp,
@@ -68,6 +71,7 @@ class CustomOutlineTextFormField extends StatelessWidget {
       obscureText: obscureText!,
       obscuringCharacter: obscuringCharacter??"*",
       onChanged: onChanged,
+      onFieldSubmitted: onFieldSubmitted,
       validator: validator,
       decoration: InputDecoration(
         fillColor: filledColor,

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/Models/OTPResponseModel/OTPResponseModel.dart';
-import 'package:linedup_app/Models/ResetPasswordResponseModel/ResetPasswordResponseModel.dart';
-import 'package:linedup_app/Models/VerifyEmailResponsetModel/VerifyEmailResponsetModel.dart';
+import 'package:com.zat.linedup/Models/OTPResponseModel/OTPResponseModel.dart';
+import 'package:com.zat.linedup/Models/ResetPasswordResponseModel/ResetPasswordResponseModel.dart';
+import 'package:com.zat.linedup/Models/VerifyEmailResponsetModel/VerifyEmailResponsetModel.dart';
 
 class ForgotPasswordProvider extends ChangeNotifier{
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:linedup_app/Utils/Constants/AssetConstants/AssetConstants.dart';
+import 'package:com.zat.linedup/Utils/Constants/AssetConstants/AssetConstants.dart';
 
 class RatingWidget extends StatefulWidget {
   double? initialRating,minRating;

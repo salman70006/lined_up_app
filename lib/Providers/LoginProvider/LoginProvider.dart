@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:linedup_app/Models/AuthModels/LoginResponseModel/LoginResponseModel.dart';
-import 'package:linedup_app/Models/EnableUserLocationResponseModel/EnableUserLocationResponseModel.dart';
+import 'package:com.zat.linedup/Models/AuthModels/LoginResponseModel/LoginResponseModel.dart';
+import 'package:com.zat.linedup/Models/EnableUserLocationResponseModel/EnableUserLocationResponseModel.dart';
 
 class LoginProvider extends ChangeNotifier {
   LoginResponseModel? loginResponseModel;

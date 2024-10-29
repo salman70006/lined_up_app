@@ -11,7 +11,7 @@ class AllBarsResponseModel {
     if (json['data'] != null) {
       barData = <BarData>[];
       json['data'].forEach((v) {
-        barData!.add( BarData.fromJson(v));
+        barData!.add(new BarData.fromJson(v));
       });
     }
   }
@@ -29,9 +29,11 @@ class AllBarsResponseModel {
 
 class BarData {
   int? id;
-  String? barOwnerId;
+  int? barOwnerId;
   String? venue;
-  List<String>? barInfo;
+  String? longitude;
+  String? latitude;
+  List<dynamic>? barInfo;
   String? aboutUs;
   String? address;
   String? startTime;
@@ -44,6 +46,8 @@ class BarData {
       {this.id,
         this.barOwnerId,
         this.venue,
+        this.longitude,
+        this.latitude,
         this.barInfo,
         this.aboutUs,
         this.address,
@@ -57,7 +61,9 @@ class BarData {
     id = json['id'];
     barOwnerId = json['bar_owner_id'];
     venue = json['venue'];
-    barInfo = json['bar_info']==null? [] : List<String>.from(json["bar_info"].map((x)=>x));
+    longitude = json['longitude'];
+    latitude = json['latitude'];
+    barInfo = json['bar_info'];
     aboutUs = json['about_us'];
     address = json['address'];
     startTime = json['start_time'];
@@ -72,6 +78,8 @@ class BarData {
     data['id'] = this.id;
     data['bar_owner_id'] = this.barOwnerId;
     data['venue'] = this.venue;
+    data['longitude'] = this.longitude;
+    data['latitude'] = this.latitude;
     data['bar_info'] = this.barInfo;
     data['about_us'] = this.aboutUs;
     data['address'] = this.address;

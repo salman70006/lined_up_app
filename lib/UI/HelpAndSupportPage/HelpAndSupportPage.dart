@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:linedup_app/API/api_response.dart';
-import 'package:linedup_app/Components/BackButtonWidget/BackButtonWidget.dart';
-import 'package:linedup_app/Components/CustomAppButton/CustomAppButton.dart';
-import 'package:linedup_app/Components/CustomOutlineTextField/CustomOutlineTextField.dart';
-import 'package:linedup_app/Components/Extentions/PaddingExtentions.dart';
-import 'package:linedup_app/Components/ScaffoldMessageWidget/ScaffoldMessageWidget.dart';
-import 'package:linedup_app/Components/StaticTextStyle/StaticTextStyle.dart';
-import 'package:linedup_app/Controllers/HelpService/HelpService.dart';
-import 'package:linedup_app/Models/HelpResponseModel/HelpResponseModel.dart';
-import 'package:linedup_app/Utils/Constants/ColorConstants/ColorConstants.dart';
+import 'package:com.zat.linedup/API/api_response.dart';
+import 'package:com.zat.linedup/Components/BackButtonWidget/BackButtonWidget.dart';
+import 'package:com.zat.linedup/Components/CustomAppButton/CustomAppButton.dart';
+import 'package:com.zat.linedup/Components/CustomOutlineTextField/CustomOutlineTextField.dart';
+import 'package:com.zat.linedup/Components/Extentions/PaddingExtentions.dart';
+import 'package:com.zat.linedup/Components/ScaffoldMessageWidget/ScaffoldMessageWidget.dart';
+import 'package:com.zat.linedup/Components/StaticTextStyle/StaticTextStyle.dart';
+import 'package:com.zat.linedup/Controllers/HelpService/HelpService.dart';
+import 'package:com.zat.linedup/Models/HelpResponseModel/HelpResponseModel.dart';
+import 'package:com.zat.linedup/Utils/Constants/ColorConstants/ColorConstants.dart';
 
 class HelpAndSupportPage extends StatefulWidget {
   const HelpAndSupportPage({super.key});
@@ -36,6 +36,9 @@ class _HelpAndSupportPageState extends State<HelpAndSupportPage> {
                 BackButtonWidget(
                   icon: Icons.arrow_back_ios,
                   iconSize: 15.sp,
+                  onPress: (){
+                    Navigator.pop(context);
+                  },
                 ),
                 Padding(
                   padding:  EdgeInsets.symmetric(vertical: 15.sp),

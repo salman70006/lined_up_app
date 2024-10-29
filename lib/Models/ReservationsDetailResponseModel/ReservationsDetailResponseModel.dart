@@ -279,6 +279,9 @@ class GetBarDetail {
   int? id;
   String? barOwnerId;
   String? venue;
+  String? longitude;
+  String? latitude;
+  double? distance;
   List<String>? barInfo;
   String? aboutUs;
   String? address;
@@ -305,6 +308,9 @@ class GetBarDetail {
     id = json['id'];
     barOwnerId = json['bar_owner_id'];
     venue = json['venue'];
+    longitude = json['longitude'];
+    latitude = json['latitude'];
+    distance = json['distance'];
     barInfo = json['bar_info'].cast<String>();
     aboutUs = json['about_us'];
     address = json['address'];
@@ -320,6 +326,9 @@ class GetBarDetail {
     data['id'] = this.id;
     data['bar_owner_id'] = this.barOwnerId;
     data['venue'] = this.venue;
+    data['longitude'] = this.longitude;
+    data['latitude'] = this.latitude;
+    data['distance'] = this.distance;
     data['bar_info'] = this.barInfo;
     data['about_us'] = this.aboutUs;
     data['address'] = this.address;

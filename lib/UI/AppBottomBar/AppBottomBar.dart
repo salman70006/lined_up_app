@@ -2,12 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:linedup_app/Components/StaticTextStyle/StaticTextStyle.dart';
-import 'package:linedup_app/UI/AppHomePage/AppHomepage.dart';
-import 'package:linedup_app/UI/FavoritesPage/Favoritespage.dart';
-import 'package:linedup_app/UI/ProfileTabPage/ProfileTabPage.dart';
-import 'package:linedup_app/UI/WalletTabbarPages/WalletTabbarPages.dart';
+import 'package:com.zat.linedup/Components/StaticTextStyle/StaticTextStyle.dart';
+import 'package:com.zat.linedup/UI/AppHomePage/AppHomepage.dart';
+import 'package:com.zat.linedup/UI/FavoritesPage/Favoritespage.dart';
+import 'package:com.zat.linedup/UI/ProfileTabPage/ProfileTabPage.dart';
+import 'package:com.zat.linedup/UI/WalletTabbarPages/WalletTabbarPages.dart';
+import 'package:provider/provider.dart';
 
+import '../../Providers/SocialLoginsAuthProvider/SocailLoginsAuthProvider.dart';
 import '../../Utils/Constants/AssetConstants/AssetConstants.dart';
 import '../../Utils/Constants/ColorConstants/ColorConstants.dart';
 

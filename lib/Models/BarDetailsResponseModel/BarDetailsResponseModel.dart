@@ -1,6 +1,6 @@
 class BarDetailsResponseModel {
   bool? success;
-  String? message;
+  dynamic message;
   Data? data;
 
   BarDetailsResponseModel({this.success, this.message, this.data});
@@ -79,7 +79,7 @@ class Data {
 
 class BarDetails {
   int? id;
-  String? barOwnerId;
+  int? barOwnerId;
   String? venue;
   List<String>? barInfo;
   String? aboutUs;
@@ -194,7 +194,7 @@ class Reservation {
 
 class Peak {
   int? id;
-  String? reservationId;
+  int? reservationId;
   String? reservationType;
   String? day;
   String? time;
@@ -202,7 +202,7 @@ class Peak {
   String? price;
   String? createdAt;
   String? updatedAt;
-  String? status;
+  dynamic status;
 
   Peak(
       {this.id,
@@ -246,7 +246,7 @@ class Peak {
 }
 class NonPeak {
   int? id;
-  String? reservationId;
+  int? reservationId;
   String? reservationType;
   String? day;
   String? time;
@@ -254,7 +254,7 @@ class NonPeak {
   String? price;
   String? createdAt;
   String? updatedAt;
-  String? status;
+  dynamic status;
 
   NonPeak(
       {this.id,
@@ -298,11 +298,11 @@ class NonPeak {
 }
 
 class ExpressReservation {
-  int? id;
-  String? barOwnerId;
-  String? barId;
+  dynamic id;
+  dynamic barOwnerId;
+  dynamic barId;
   String? price;
-  String? status;
+  dynamic status;
   String? availability;
   String? createdAt;
   String? updatedAt;
@@ -343,9 +343,9 @@ class ExpressReservation {
 }
 
 class BarEvents {
-  int? id;
-  String? barOwnerId;
-  String? barId;
+  dynamic id;
+  int? barOwnerId;
+  int? barId;
   String? title;
   String? date;
   String? startTime;

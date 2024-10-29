@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:linedup_app/Components/ScaffoldMessageWidget/ScaffoldMessageWidget.dart';
-import 'package:linedup_app/Controllers/ForgotPasswordService/ForgotPasswordService.dart';
-import 'package:linedup_app/Utils/Constants/RouteConstants/RouteConstants.dart';
+import 'package:com.zat.linedup/Components/ScaffoldMessageWidget/ScaffoldMessageWidget.dart';
+import 'package:com.zat.linedup/Controllers/ForgotPasswordService/ForgotPasswordService.dart';
+import 'package:com.zat.linedup/Providers/LoadingProvider/LoadingProvider.dart';
+import 'package:com.zat.linedup/Utils/Constants/RouteConstants/RouteConstants.dart';
 import 'package:pinput/pinput.dart';
+import 'package:provider/provider.dart';
 
 import '../../../Components/BackButtonWidget/BackButtonWidget.dart';
 import '../../../Components/CustomAppButton/CustomAppButton.dart';
@@ -163,25 +165,31 @@ class _OtpVerificationState extends State<OtpVerification> {
 
                       Padding(
                         padding:  EdgeInsets.symmetric(vertical: 10.sp),
-                        child: CustomAppButton(
-                          title: "Verify",
-                          fontWeight: FontWeight.w700,
-                          fontSize: 15.sp,
-                          fontFamily: englishBold,
-                          onPress: ()async{
-                           if(formKey.currentState!.validate()){
-                             var response = await ForgotPasswordService().verifyOtp(context, pinController.text);
-                             debugPrint("on Submit:$response");
-                             if(response!.responseData?.success==true){
-                               ShowMessage().showMessage(context,response.responseData!.message!, ColorConstants.appPrimaryColor);
-                               Navigator.of(context).pushNamed(RouteConstants.createNewPasswordPage,arguments: response.responseData?.data?.email);
+                        child: Consumer<LoadingProvider>(
+                          builder: (context, loadingProvider,_) {
+                            return loadingProvider.isLoading?Center(child: CircularProgressIndicator(color: ColorConstants.appPrimaryColor,)) : CustomAppButton(
+                              title: "Verify",
+                              fontWeight: FontWeight.w700,
+                              fontSize: 15.sp,
+                              fontFamily: englishBold,
+                              onPress: ()async{
+                               if(formKey.currentState!.validate()){
+                                 loadingProvider.setLoading(true);
+                                 var response = await ForgotPasswordService().verifyOtp(context, pinController.text);
+                                 debugPrint("on Submit:$response");
+                                 loadingProvider.setLoading(false);
+                                 if(response!.responseData?.success==true){
+                                   ShowMessage().showMessage(context,response.responseData!.message!, ColorConstants.appPrimaryColor);
+                                   Navigator.of(context).pushNamed(RouteConstants.createNewPasswordPage,arguments: response.responseData?.data?.email);
 
-                             }else{
-                               ShowMessage().showMessage(context,response.responseData!.message!, ColorConstants.redColor);
+                                 }else{
+                                   ShowMessage().showMessage(context,response.responseData!.message!, ColorConstants.redColor);
 
-                             }
-                           }
-                          },
+                                 }
+                               }
+                              },
+                            );
+                          }
                         ),
                       ),
                     ],

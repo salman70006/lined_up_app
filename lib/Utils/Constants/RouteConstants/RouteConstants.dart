@@ -19,4 +19,8 @@ class RouteConstants {
   static const String helpAndSupportPageRoute = "helpAndSupportPageRoute";
   static const String appPrivacyPolicyPageRoute = "appPrivacyPolicyPageRoute";
   static const String appTermsAndConditions = "appTermsAndConditions";
+  static const String mapPageRoute = "mapPageRoute";
+  static const String searchedResultsRoute = "searchedResultsRoute";
+  static const String wishListSearchedResultPageRoute = "wishListSearchedResultPageRoute";
+  static const String reservationSearchRoute = "reservationSearchRoute";
 }

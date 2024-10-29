@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/Models/AuthModels/UserRegistrationResponseModel/UserRegistrationResponseModel.dart';
+import 'package:com.zat.linedup/Models/AuthModels/UserRegistrationResponseModel/UserRegistrationResponseModel.dart';
 
 class UserRegistrationProvider extends ChangeNotifier{
   bool? isRemember=false;

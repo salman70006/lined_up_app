@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
-import 'package:linedup_app/API/api.dart';
-import 'package:linedup_app/API/api_response.dart';
-import 'package:linedup_app/ApiEndPoints/ApiEndPoints.dart';
-import 'package:linedup_app/Models/RedeemTicketRequestModel/RedeemTicketRequestModel.dart';
-import 'package:linedup_app/Models/RedeemTicketResponseModel/RedeemTicketResponseModel.dart';
-import 'package:linedup_app/Providers/ReservationsDetailProvider/ReservationDetailProvider.dart';
+import 'package:com.zat.linedup/API/api.dart';
+import 'package:com.zat.linedup/API/api_response.dart';
+import 'package:com.zat.linedup/ApiEndPoints/ApiEndPoints.dart';
+import 'package:com.zat.linedup/Models/RedeemTicketRequestModel/RedeemTicketRequestModel.dart';
+import 'package:com.zat.linedup/Models/RedeemTicketResponseModel/RedeemTicketResponseModel.dart';
+import 'package:com.zat.linedup/Providers/ReservationsDetailProvider/ReservationDetailProvider.dart';
 import 'package:provider/provider.dart';
 
 class RedeemTicketService {
@@ -18,7 +18,7 @@ class RedeemTicketService {
     );
     debugPrint("Redeem Ticket Request ${redeemTicketRequestModel.ticketId}");
     try{
-      var response = await Api.postRequestData(ApiEndPoints.redeemTicket, redeemTicketRequestModel, context,sendToken: true);
+      var response = await Api.postRequestData(ApiEndPoints.redeemTicket, redeemTicketRequestModel.toJson(), context,sendToken: true);
       debugPrint("Redeem Ticket Response $response}");
       RedeemTicketResponseModel redeemTicketResponseModel = RedeemTicketResponseModel.fromJson(jsonDecode(response));
       debugPrint("Redeem Ticket Model Response ${redeemTicketResponseModel.toJson()}");

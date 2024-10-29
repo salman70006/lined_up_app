@@ -2,9 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:linedup_app/Components/ScaffoldMessageWidget/ScaffoldMessageWidget.dart';
-import 'package:linedup_app/Controllers/ForgotPasswordService/ForgotPasswordService.dart';
-import 'package:linedup_app/Providers/ResetPasswordProvider/ResetpasswordProvider.dart';
+import 'package:com.zat.linedup/Components/ScaffoldMessageWidget/ScaffoldMessageWidget.dart';
+import 'package:com.zat.linedup/Controllers/ForgotPasswordService/ForgotPasswordService.dart';
+import 'package:com.zat.linedup/Providers/LoadingProvider/LoadingProvider.dart';
+import 'package:com.zat.linedup/Providers/ResetPasswordProvider/ResetpasswordProvider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../Components/BackButtonWidget/BackButtonWidget.dart';
@@ -31,8 +32,8 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<ResetPasswordProvider>(
-        builder: (context, resetPasswordProvider,_) {
+      body: Consumer2<ResetPasswordProvider,LoadingProvider>(
+        builder: (context, resetPasswordProvider,loadingProvider,_) {
           return Padding(
             padding: EdgeInsets.only(top: PaddingExtensions.screenTopPadding,left: PaddingExtensions.screenLeftSidePadding,right: PaddingExtensions.screenRightSidePadding),
             child: Form(
@@ -120,15 +121,17 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                             ),
                             Padding(
                               padding:  EdgeInsets.symmetric(vertical: 30.sp),
-                              child: CustomAppButton(
+                              child: loadingProvider.isLoading?Center(child: CircularProgressIndicator(color: ColorConstants.appPrimaryColor,)) :CustomAppButton(
                                 title: "Reset Password",
                                 fontWeight: FontWeight.w700,
                                 fontSize: 15.sp,
                                 fontFamily: englishBold,
                                 onPress: ()async{
                                   if(formKey.currentState!.validate()){
+                                    loadingProvider.setLoading(true);
                                     var response = await ForgotPasswordService().resetPassword(context, widget.userEmail, newPasswordController.text, confirmNewPasswordController.text);
                                     debugPrint("On submit:$response");
+                                    loadingProvider.setLoading(false);
                                     if(response!.responseData?.success==true){
                                       ShowMessage().showMessage(context, response.responseData!.message!, ColorConstants.appPrimaryColor);
                                       Navigator.of(context).pushNamed(RouteConstants.resetPasswordSuccessPage);

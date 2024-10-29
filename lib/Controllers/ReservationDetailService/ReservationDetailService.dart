@@ -3,8 +3,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:linedup_app/Models/ReservationsDetailResponseModel/ReservationsDetailResponseModel.dart';
-import 'package:linedup_app/Providers/ReservationsDetailProvider/ReservationDetailProvider.dart';
+import 'package:com.zat.linedup/Models/ReservationsDetailResponseModel/ReservationsDetailResponseModel.dart';
+import 'package:com.zat.linedup/Providers/ReservationsDetailProvider/ReservationDetailProvider.dart';
 import 'package:provider/provider.dart';
 
 import '../../API/api.dart';

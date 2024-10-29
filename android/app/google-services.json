@@ -9,10 +9,18 @@
       "client_info": {
         "mobilesdk_app_id": "1:415680926280:android:a8df82f8e9d3ed1950be7d",
         "android_client_info": {
-          "package_name": "com.example.linedup_app"
+          "package_name": "com.zat.linedup"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "415680926280-c1n86s9mlp3kfn6cljoo2qn7j9u7k1hh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zat.linedup",
+            "certificate_hash": "de7affea78b5c5e03dcae539fedd855fc2c96e66"
+          }
+        },
         {
           "client_id": "415680926280-t5874n29hhrjgjqgdan9kdkil3hj38os.apps.googleusercontent.com",
           "client_type": 3
@@ -29,6 +37,13 @@
             {
               "client_id": "415680926280-t5874n29hhrjgjqgdan9kdkil3hj38os.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "415680926280-vf1n455b5aodmhhdj2i0i8nd0mricgp4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.linedup.linedupApp"
+              }
             }
           ]
         }
